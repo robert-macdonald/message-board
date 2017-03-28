@@ -17,12 +17,17 @@ if (Meteor.isClient){
 
     Template.newMessage.events({
         'submit #entryForm': function (event) {
+
+            //prevents reload
             event.preventDefault();
 
+            //selects the text area with message
             var m = event.target.querySelector('#content').value;
 
+            //writes data to database
             Messages.insert({content: m, date: new Date()});
 
+            //resets form
             event.target.reset();
         }
     });

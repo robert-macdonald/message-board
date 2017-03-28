@@ -1,0 +1,25 @@
+<head>
+  <title>message-board</title>
+</head>
+
+<body>
+    {{>newMessage}}
+    {{>listing }}
+</body>
+
+<template name="newMessage">
+    <form id="entryForm">
+        <textarea id="content" placeholder="Your Message">
+
+        </textarea>
+        <button type="submit">Send</button>
+    </form>
+</template>
+
+<template name="listing">
+    <ul>
+        {{#each entries}}
+            <li>{{content}} - {{formattedDate}}</li>
+        {{/each}}
+    </ul>
+</template>
